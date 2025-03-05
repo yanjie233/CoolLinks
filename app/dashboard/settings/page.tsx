@@ -6,7 +6,7 @@ import { Separator } from "@/components/ui/separator"
 export default function SettingsPage() {
   return (
     <DashboardShell>
-      <DashboardHeader heading="Settings" description="Manage your account settings and preferences." />
+      <DashboardHeader heading="设置" description="管理您的账户设置和偏好。" />
       <Separator />
       <div className="grid gap-10">
         <AccountForm />

@@ -5,7 +5,7 @@ import { UsersTable } from "@/components/admin/users-table"
 export default function AdminDashboardPage() {
   return (
     <AdminShell>
-      <AdminHeader heading="Admin Dashboard" description="Manage users, groups, and site settings." />
+      <AdminHeader heading="管理员控制面板" description="管理用户、用户组和网站设置。" />
       <UsersTable />
     </AdminShell>
   )

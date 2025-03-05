@@ -8,12 +8,12 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 export default function AdminSettingsPage() {
   return (
     <AdminShell>
-      <AdminHeader heading="Site Settings" description="Manage global site settings and configurations." />
+      <AdminHeader heading="网站设置" description="管理全局网站设置和配置。" />
       <Separator />
       <Tabs defaultValue="general" className="w-full">
         <TabsList className="grid w-full max-w-md grid-cols-2">
-          <TabsTrigger value="general">General</TabsTrigger>
-          <TabsTrigger value="email">Email</TabsTrigger>
+          <TabsTrigger value="general">常规</TabsTrigger>
+          <TabsTrigger value="email">邮箱</TabsTrigger>
         </TabsList>
         <TabsContent value="general">
           <SiteSettingsForm />

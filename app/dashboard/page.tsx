@@ -9,7 +9,7 @@ export default function DashboardPage() {
     <DashboardShell>
       <UserWelcomeBanner />
       <div className="flex items-center justify-between">
-        <DashboardHeader heading="Links" description="Create and manage your short links." />
+        <DashboardHeader heading="链接" description="创建和管理您的短链接。" />
         <LinkCreateButton />
       </div>
       <LinksTable />

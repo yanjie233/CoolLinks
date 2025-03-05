@@ -4,8 +4,8 @@ import { AdminNav } from "@/components/admin/admin-nav"
 import { SiteFooter } from "@/components/site-footer"
 
 export const metadata: Metadata = {
-  title: "Admin Dashboard | CoolLinks",
-  description: "Manage users, groups, and site settings",
+  title: "管理员控制面板 | 酷链接",
+  description: "管理用户、用户组和网站设置",
 }
 
 interface AdminLayoutProps {

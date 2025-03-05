@@ -10,17 +10,17 @@ export default function Home() {
         <div className="container flex h-14 max-w-7xl items-center">
           <div className="mr-4 flex">
             <Link className="mr-6 flex items-center space-x-2" href="/">
-              <span className="font-bold inline-block">CoolLinks</span>
+              <span className="font-bold inline-block">酷链接</span>
             </Link>
             <nav className="flex items-center gap-6 text-sm">
               <Link href="/features" className="transition-colors hover:text-foreground/80 text-foreground/60">
-                Features
+                功能
               </Link>
               <Link href="/pricing" className="transition-colors hover:text-foreground/80 text-foreground/60">
-                Pricing
+                价格
               </Link>
               <Link href="/docs" className="transition-colors hover:text-foreground/80 text-foreground/60">
-                Docs
+                文档
               </Link>
             </nav>
           </div>
@@ -28,11 +28,11 @@ export default function Home() {
             <nav className="flex items-center">
               <Link href="/login" className="px-4">
                 <Button variant="ghost" size="sm">
-                  Login
+                  登录
                 </Button>
               </Link>
               <Link href="/register">
-                <Button size="sm">Get Started</Button>
+                <Button size="sm">开始使用</Button>
               </Link>
             </nav>
           </div>
@@ -45,22 +45,21 @@ export default function Home() {
               <div className="flex flex-col justify-center space-y-4">
                 <div className="space-y-2">
                   <h1 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl lg:text-6xl">
-                    Create Short Links with Full Control
+                    创建短链接，完全掌控
                   </h1>
                   <p className="max-w-[700px] text-gray-500 md:text-xl dark:text-gray-400">
-                    CoolLinks gives you powerful tools for creating, managing, and tracking short URLs with custom
-                    expiration dates, password protection, and more.
+                    酷链接为您提供强大的工具，用于创建、管理和跟踪短网址，支持自定义过期日期、密码保护等功能。
                   </p>
                 </div>
                 <div className="flex flex-col gap-2 sm:flex-row">
                   <Link href="/register">
                     <Button size="lg" className="mb-2 sm:mb-0">
-                      Get Started
+                      开始使用
                     </Button>
                   </Link>
                   <Link href="/features">
                     <Button variant="outline" size="lg">
-                      Learn More
+                      了解更多
                     </Button>
                   </Link>
                 </div>
@@ -73,8 +72,8 @@ export default function Home() {
                         <GlobeIcon className="h-5 w-5 text-primary" />
                       </div>
                       <div className="ml-4 space-y-1">
-                        <p className="text-sm font-medium leading-none">Custom Short URLs</p>
-                        <p className="text-sm text-gray-500 dark:text-gray-400">Create memorable, branded links</p>
+                        <p className="text-sm font-medium leading-none">自定义短网址</p>
+                        <p className="text-sm text-gray-500 dark:text-gray-400">创建易记的品牌链接</p>
                       </div>
                     </div>
                     <div className="flex items-center">
@@ -82,8 +81,8 @@ export default function Home() {
                         <TimerIcon className="h-5 w-5 text-primary" />
                       </div>
                       <div className="ml-4 space-y-1">
-                        <p className="text-sm font-medium leading-none">Flexible Expiration</p>
-                        <p className="text-sm text-gray-500 dark:text-gray-400">Set custom link lifetime</p>
+                        <p className="text-sm font-medium leading-none">灵活过期设置</p>
+                        <p className="text-sm text-gray-500 dark:text-gray-400">设置自定义链接生命周期</p>
                       </div>
                     </div>
                     <div className="flex items-center">
@@ -91,8 +90,8 @@ export default function Home() {
                         <LockClosedIcon className="h-5 w-5 text-primary" />
                       </div>
                       <div className="ml-4 space-y-1">
-                        <p className="text-sm font-medium leading-none">Password Protection</p>
-                        <p className="text-sm text-gray-500 dark:text-gray-400">Secure access to your links</p>
+                        <p className="text-sm font-medium leading-none">密码保护</p>
+                        <p className="text-sm text-gray-500 dark:text-gray-400">安全访问您的链接</p>
                       </div>
                     </div>
                   </div>
@@ -107,28 +106,22 @@ export default function Home() {
               <Card>
                 <CardContent className="p-6">
                   <GlobeIcon className="h-12 w-12 text-primary mb-4" />
-                  <h3 className="text-lg font-bold mb-2">Custom URLs</h3>
-                  <p className="text-gray-500 dark:text-gray-400">
-                    Create memorable branded links that reflect your identity.
-                  </p>
+                  <h3 className="text-lg font-bold mb-2">自定义网址</h3>
+                  <p className="text-gray-500 dark:text-gray-400">创建反映您身份的易记品牌链接。</p>
                 </CardContent>
               </Card>
               <Card>
                 <CardContent className="p-6">
                   <TimerIcon className="h-12 w-12 text-primary mb-4" />
-                  <h3 className="text-lg font-bold mb-2">Expiration Control</h3>
-                  <p className="text-gray-500 dark:text-gray-400">
-                    Set links to expire after 1 day, 7 days, 30 days, or create permanent links.
-                  </p>
+                  <h3 className="text-lg font-bold mb-2">过期控制</h3>
+                  <p className="text-gray-500 dark:text-gray-400">设置链接在1天、7天、30天后过期，或创建永久链接。</p>
                 </CardContent>
               </Card>
               <Card>
                 <CardContent className="p-6">
                   <LockClosedIcon className="h-12 w-12 text-primary mb-4" />
-                  <h3 className="text-lg font-bold mb-2">Security Features</h3>
-                  <p className="text-gray-500 dark:text-gray-400">
-                    Protect your links with passwords and control access to your content.
-                  </p>
+                  <h3 className="text-lg font-bold mb-2">安全功能</h3>
+                  <p className="text-gray-500 dark:text-gray-400">使用密码保护您的链接并控制对内容的访问。</p>
                 </CardContent>
               </Card>
             </div>
@@ -137,7 +130,7 @@ export default function Home() {
       </main>
       <footer className="border-t py-6 md:py-0">
         <div className="container flex flex-col items-center justify-between gap-4 md:h-24 md:flex-row">
-          <p className="text-sm text-gray-500 dark:text-gray-400">© 2024 CoolLinks. All rights reserved.</p>
+          <p className="text-sm text-gray-500 dark:text-gray-400">© 2024 酷链接。保留所有权利。</p>
           <div className="flex items-center gap-4">
             <Link
               href="https://github.com"

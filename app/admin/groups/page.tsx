@@ -7,7 +7,7 @@ export default function UserGroupsPage() {
   return (
     <AdminShell>
       <div className="flex items-center justify-between">
-        <AdminHeader heading="User Groups" description="Manage user groups and permissions." />
+        <AdminHeader heading="用户组" description="管理用户组和权限。" />
         <CreateGroupButton />
       </div>
       <GroupsTable />

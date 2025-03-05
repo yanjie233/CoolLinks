@@ -8,17 +8,17 @@ import { cn } from "@/lib/utils"
 
 const items = [
   {
-    title: "Links",
+    title: "链接",
     href: "/dashboard",
     icon: LuLink,
   },
   {
-    title: "Analytics",
+    title: "分析",
     href: "/dashboard/analytics",
     icon: LuBarChart,
   },
   {
-    title: "Settings",
+    title: "设置",
     href: "/dashboard/settings",
     icon: LuSettings,
   },

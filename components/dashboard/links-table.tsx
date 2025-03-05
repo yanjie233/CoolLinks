@@ -9,7 +9,7 @@ import { Badge } from "@/components/ui/badge"
 import { toast } from "@/components/ui/use-toast"
 import { LuMoreHorizontal, LuTrash, LuPencil, LuCopy, LuExternalLink } from "react-icons/lu"
 
-// Mock data for demonstration
+// 模拟数据用于演示
 const links = [
   {
     id: 1,
@@ -49,18 +49,18 @@ export function LinksTable() {
   const copyToClipboard = (slug: string) => {
     navigator.clipboard.writeText(`${window.location.origin}/l/${slug}`)
     toast({
-      title: "Link copied",
-      description: "The short link has been copied to your clipboard",
+      title: "链接已复制",
+      description: "短链接已复制到剪贴板",
     })
   }
 
   const deleteLink = (id: number) => {
     setIsLoading(true)
-    // In a real app, this would be an API call
+    // 在实际应用中，这将是一个API调用
     setTimeout(() => {
       toast({
-        title: "Link deleted",
-        description: "The short link has been deleted",
+        title: "链接已删除",
+        description: "短链接已被删除",
       })
       setIsLoading(false)
     }, 500)
@@ -71,13 +71,13 @@ export function LinksTable() {
       <Table>
         <TableHeader>
           <TableRow>
-            <TableHead className="w-[100px]">Short URL</TableHead>
-            <TableHead className="max-w-[200px]">Destination</TableHead>
-            <TableHead className="hidden md:table-cell">Created</TableHead>
-            <TableHead className="hidden md:table-cell">Expires</TableHead>
-            <TableHead className="text-center">Clicks</TableHead>
-            <TableHead className="hidden md:table-cell">Status</TableHead>
-            <TableHead className="text-right">Actions</TableHead>
+            <TableHead className="w-[100px]">短网址</TableHead>
+            <TableHead className="max-w-[200px]">目标地址</TableHead>
+            <TableHead className="hidden md:table-cell">创建时间</TableHead>
+            <TableHead className="hidden md:table-cell">过期时间</TableHead>
+            <TableHead className="text-center">点击量</TableHead>
+            <TableHead className="hidden md:table-cell">状态</TableHead>
+            <TableHead className="text-right">操作</TableHead>
           </TableRow>
         </TableHeader>
         <TableBody>
@@ -87,41 +87,41 @@ export function LinksTable() {
               <TableCell className="max-w-[200px] truncate" title={link.destination}>
                 {link.destination}
               </TableCell>
-              <TableCell className="hidden md:table-cell">{format(link.createdAt, "MMM dd, yyyy")}</TableCell>
+              <TableCell className="hidden md:table-cell">{format(link.createdAt, "yyyy年MM月dd日")}</TableCell>
               <TableCell className="hidden md:table-cell">
-                {link.expiresAt ? format(link.expiresAt, "MMM dd, yyyy") : "Never"}
+                {link.expiresAt ? format(link.expiresAt, "yyyy年MM月dd日") : "永不过期"}
               </TableCell>
               <TableCell className="text-center">{link.clicks}</TableCell>
               <TableCell className="hidden md:table-cell">
                 <div className="flex flex-wrap gap-1">
-                  {link.password && <Badge variant="secondary">Password</Badge>}
-                  {link.showInterstitial && <Badge variant="outline">Interstitial</Badge>}
-                  {!link.expiresAt && <Badge className="bg-green-500 hover:bg-green-600">Permanent</Badge>}
+                  {link.password && <Badge variant="secondary">密码保护</Badge>}
+                  {link.showInterstitial && <Badge variant="outline">中间页</Badge>}
+                  {!link.expiresAt && <Badge className="bg-green-500 hover:bg-green-600">永久</Badge>}
                 </div>
               </TableCell>
               <TableCell className="text-right">
                 <DropdownMenu>
                   <DropdownMenuTrigger asChild>
                     <Button variant="ghost" size="sm" className="h-8 w-8 p-0">
-                      <span className="sr-only">Open menu</span>
+                      <span className="sr-only">打开菜单</span>
                       <LuMoreHorizontal className="h-4 w-4" />
                     </Button>
                   </DropdownMenuTrigger>
                   <DropdownMenuContent align="end">
                     <DropdownMenuItem onClick={() => copyToClipboard(link.slug)}>
                       <LuCopy className="mr-2 h-4 w-4" />
-                      Copy link
+                      复制链接
                     </DropdownMenuItem>
                     <DropdownMenuItem asChild>
                       <a href={link.destination} target="_blank" rel="noopener noreferrer">
                         <LuExternalLink className="mr-2 h-4 w-4" />
-                        Visit destination
+                        访问目标地址
                       </a>
                     </DropdownMenuItem>
                     <DropdownMenuItem asChild>
                       <a href={`/dashboard/links/${link.id}/edit`}>
                         <LuPencil className="mr-2 h-4 w-4" />
-                        Edit
+                        编辑
                       </a>
                     </DropdownMenuItem>
                     <DropdownMenuItem
@@ -130,7 +130,7 @@ export function LinksTable() {
                       className="text-red-600 focus:text-red-600"
                     >
                       <LuTrash className="mr-2 h-4 w-4" />
-                      Delete
+                      删除
                     </DropdownMenuItem>
                   </DropdownMenuContent>
                 </DropdownMenu>

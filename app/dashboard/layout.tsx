@@ -4,8 +4,8 @@ import { DashboardNav } from "@/components/dashboard/dashboard-nav"
 import { SiteFooter } from "@/components/site-footer"
 
 export const metadata: Metadata = {
-  title: "Dashboard | CoolLinks",
-  description: "Manage your short links",
+  title: "控制面板 | 酷链接",
+  description: "管理您的短链接",
 }
 
 interface DashboardLayoutProps {

@@ -12,20 +12,20 @@ import { toast } from "@/components/ui/use-toast"
 
 const formSchema = z.object({
   siteName: z.string().min(2, {
-    message: "Site name must be at least 2 characters",
+    message: "网站名称必须至少2个字符",
   }),
   siteDescription: z.string(),
   logoUrl: z
     .string()
     .url({
-      message: "Please enter a valid URL",
+      message: "请输入有效的URL",
     })
     .optional()
     .or(z.literal("")),
   faviconUrl: z
     .string()
     .url({
-      message: "Please enter a valid URL",
+      message: "请输入有效的URL",
     })
     .optional()
     .or(z.literal("")),
@@ -37,8 +37,8 @@ export function SiteSettingsForm() {
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
-      siteName: "CoolLinks",
-      siteDescription: "Create Short Links with Full Control",
+      siteName: "酷链接",
+      siteDescription: "创建短链接，完全掌控",
       logoUrl: "",
       faviconUrl: "",
     },
@@ -47,11 +47,11 @@ export function SiteSettingsForm() {
   async function onSubmit(values: z.infer<typeof formSchema>) {
     setIsLoading(true)
 
-    // In a real app, this would be an API call
+    // 在实际应用中，这将是一个API调用
     setTimeout(() => {
       toast({
-        title: "Settings updated",
-        description: "Your site settings have been updated",
+        title: "设置已更新",
+        description: "您的网站设置已更新",
       })
       setIsLoading(false)
     }, 1000)
@@ -65,11 +65,11 @@ export function SiteSettingsForm() {
           name="siteName"
           render={({ field }) => (
             <FormItem>
-              <FormLabel>Site Name</FormLabel>
+              <FormLabel>网站名称</FormLabel>
               <FormControl>
                 <Input {...field} />
               </FormControl>
-              <FormDescription>This is the name displayed in the browser tab and site header.</FormDescription>
+              <FormDescription>这是显示在浏览器标签和网站标题中的名称。</FormDescription>
               <FormMessage />
             </FormItem>
           )}
@@ -79,11 +79,11 @@ export function SiteSettingsForm() {
           name="siteDescription"
           render={({ field }) => (
             <FormItem>
-              <FormLabel>Site Description</FormLabel>
+              <FormLabel>网站描述</FormLabel>
               <FormControl>
                 <Input {...field} />
               </FormControl>
-              <FormDescription>Used in meta tags for SEO and social sharing.</FormDescription>
+              <FormDescription>用于SEO和社交分享的元标签。</FormDescription>
               <FormMessage />
             </FormItem>
           )}
@@ -97,7 +97,7 @@ export function SiteSettingsForm() {
               <FormControl>
                 <Input placeholder="https://example.com/logo.png" {...field} />
               </FormControl>
-              <FormDescription>URL to your site logo. Recommended size: 200x50px.</FormDescription>
+              <FormDescription>您网站logo的URL。推荐尺寸：200x50px。</FormDescription>
               <FormMessage />
             </FormItem>
           )}
@@ -111,13 +111,13 @@ export function SiteSettingsForm() {
               <FormControl>
                 <Input placeholder="https://example.com/favicon.ico" {...field} />
               </FormControl>
-              <FormDescription>URL to your site favicon. Should be a .ico or .png file.</FormDescription>
+              <FormDescription>您网站favicon的URL。应为.ico或.png文件。</FormDescription>
               <FormMessage />
             </FormItem>
           )}
         />
         <Button type="submit" disabled={isLoading}>
-          {isLoading ? "Saving..." : "Save Settings"}
+          {isLoading ? "保存中..." : "保存设置"}
         </Button>
       </form>
     </Form>

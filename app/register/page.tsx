@@ -3,8 +3,8 @@ import Link from "next/link"
 import { RegisterForm } from "@/components/auth/register-form"
 
 export const metadata: Metadata = {
-  title: "Register | CoolLinks",
-  description: "Create a CoolLinks account",
+  title: "注册 | 酷链接",
+  description: "创建酷链接账户",
 }
 
 export default function RegisterPage() {
@@ -14,29 +14,27 @@ export default function RegisterPage() {
         <div className="absolute inset-0 bg-primary" />
         <div className="relative z-20 flex items-center text-lg font-medium">
           <Link href="/" className="flex items-center">
-            CoolLinks
+            酷链接
           </Link>
         </div>
         <div className="relative z-20 mt-auto">
           <blockquote className="space-y-2">
-            <p className="text-lg">
-              "Creating custom short links with expiration dates and password protection has never been easier."
-            </p>
-            <footer className="text-sm">Alex Chen - Product Manager</footer>
+            <p className="text-lg">"创建带有过期日期和密码保护的自定义短链接从未如此简单。"</p>
+            <footer className="text-sm">亚历克斯·陈 - 产品经理</footer>
           </blockquote>
         </div>
       </div>
       <div className="lg:p-8">
         <div className="mx-auto flex w-full flex-col justify-center space-y-6 sm:w-[350px]">
           <div className="flex flex-col space-y-2 text-center">
-            <h1 className="text-2xl font-semibold tracking-tight">Create an account</h1>
-            <p className="text-sm text-muted-foreground">Enter your details below to create your account</p>
+            <h1 className="text-2xl font-semibold tracking-tight">创建账户</h1>
+            <p className="text-sm text-muted-foreground">在下方输入您的详细信息以创建账户</p>
           </div>
           <RegisterForm />
           <p className="px-8 text-center text-sm text-muted-foreground">
-            Already have an account?{" "}
+            已有账户？{" "}
             <Link href="/login" className="underline underline-offset-4 hover:text-primary">
-              Login
+              登录
             </Link>
           </p>
         </div>

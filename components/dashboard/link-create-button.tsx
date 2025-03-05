@@ -23,7 +23,7 @@ import * as z from "zod"
 
 const formSchema = z.object({
   destination: z.string().url({
-    message: "Please enter a valid URL",
+    message: "请输入有效的URL",
   }),
   customSlug: z.string().optional(),
   expiration: z.string(),
@@ -49,13 +49,13 @@ export function LinkCreateButton() {
   async function onSubmit(values: z.infer<typeof formSchema>) {
     setIsLoading(true)
 
-    // In a real app, this would be an API call
+    // 在实际应用中，这将是一个API调用
     setTimeout(() => {
       setIsLoading(false)
       setOpen(false)
       toast({
-        title: "Link created",
-        description: "Your new short link has been created",
+        title: "链接已创建",
+        description: "您的新短链接已创建",
       })
       form.reset()
     }, 1000)
@@ -66,13 +66,13 @@ export function LinkCreateButton() {
       <DialogTrigger asChild>
         <Button>
           <LuPlus className="mr-2 h-4 w-4" />
-          New Link
+          新建链接
         </Button>
       </DialogTrigger>
       <DialogContent className="sm:max-w-[500px]">
         <DialogHeader>
-          <DialogTitle>Create a new short link</DialogTitle>
-          <DialogDescription>Enter the destination URL and customize your short link options.</DialogDescription>
+          <DialogTitle>创建新的短链接</DialogTitle>
+          <DialogDescription>输入目标URL并自定义您的短链接选项。</DialogDescription>
         </DialogHeader>
         <Form {...form}>
           <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
@@ -81,7 +81,7 @@ export function LinkCreateButton() {
               name="destination"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Destination URL</FormLabel>
+                  <FormLabel>目标URL</FormLabel>
                   <FormControl>
                     <Input placeholder="https://example.com/my-long-url" {...field} />
                   </FormControl>
@@ -94,11 +94,11 @@ export function LinkCreateButton() {
               name="customSlug"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Custom URL Slug (Optional)</FormLabel>
+                  <FormLabel>自定义URL后缀（可选）</FormLabel>
                   <FormControl>
                     <Input placeholder="my-custom-link" {...field} />
                   </FormControl>
-                  <FormDescription>Leave blank to generate a random slug.</FormDescription>
+                  <FormDescription>留空将生成随机后缀。</FormDescription>
                   <FormMessage />
                 </FormItem>
               )}
@@ -108,20 +108,20 @@ export function LinkCreateButton() {
               name="expiration"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Link Expiration</FormLabel>
+                  <FormLabel>链接过期时间</FormLabel>
                   <Select onValueChange={field.onChange} defaultValue={field.value}>
                     <FormControl>
                       <SelectTrigger>
-                        <SelectValue placeholder="Select expiration time" />
+                        <SelectValue placeholder="选择过期时间" />
                       </SelectTrigger>
                     </FormControl>
                     <SelectContent>
-                      <SelectItem value="1">1 Day</SelectItem>
-                      <SelectItem value="3">3 Days</SelectItem>
-                      <SelectItem value="7">7 Days</SelectItem>
-                      <SelectItem value="14">14 Days</SelectItem>
-                      <SelectItem value="30">30 Days</SelectItem>
-                      <SelectItem value="0">Never (Permanent)</SelectItem>
+                      <SelectItem value="1">1天</SelectItem>
+                      <SelectItem value="3">3天</SelectItem>
+                      <SelectItem value="7">7天</SelectItem>
+                      <SelectItem value="14">14天</SelectItem>
+                      <SelectItem value="30">30天</SelectItem>
+                      <SelectItem value="0">永不过期</SelectItem>
                     </SelectContent>
                   </Select>
                   <FormMessage />
@@ -133,9 +133,9 @@ export function LinkCreateButton() {
               name="password"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Password Protection (Optional)</FormLabel>
+                  <FormLabel>密码保护（可选）</FormLabel>
                   <FormControl>
-                    <Input placeholder="Leave blank for no password" type="password" {...field} />
+                    <Input placeholder="留空表示无密码" type="password" {...field} />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
@@ -150,18 +150,18 @@ export function LinkCreateButton() {
                     <Checkbox checked={field.value} onCheckedChange={field.onChange} />
                   </FormControl>
                   <div className="space-y-1 leading-none">
-                    <FormLabel>Show interstitial page</FormLabel>
-                    <FormDescription>Show a preview page before redirecting to the destination.</FormDescription>
+                    <FormLabel>显示中间页</FormLabel>
+                    <FormDescription>在重定向到目标地址前显示预览页面。</FormDescription>
                   </div>
                 </FormItem>
               )}
             />
             <DialogFooter>
               <Button variant="outline" onClick={() => setOpen(false)} type="button">
-                Cancel
+                取消
               </Button>
               <Button type="submit" disabled={isLoading}>
-                {isLoading ? "Creating..." : "Create Link"}
+                {isLoading ? "创建中..." : "创建链接"}
               </Button>
             </DialogFooter>
           </form>

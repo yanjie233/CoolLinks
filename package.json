@@ -59,10 +59,10 @@
     "vaul": "^0.9.6",
     "zod": "latest",
     "@types/react": "latest",
-    "@radix-ui/react-icons": "latest",
     "nanoid": "latest",
     "react-icons": "latest",
     "@supabase/supabase-js": "latest",
+    "@radix-ui/react-icons": "latest",
     "nodemailer": "latest"
   },
   "devDependencies": {

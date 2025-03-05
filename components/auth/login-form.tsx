@@ -14,10 +14,10 @@ import { toast } from "@/components/ui/use-toast"
 
 const formSchema = z.object({
   email: z.string().email({
-    message: "Please enter a valid email address",
+    message: "请输入有效的电子邮箱地址",
   }),
   password: z.string().min(8, {
-    message: "Password must be at least 8 characters",
+    message: "密码必须至少8个字符",
   }),
 })
 
@@ -48,16 +48,16 @@ export function LoginForm() {
       }
 
       toast({
-        title: "Login successful",
-        description: "Redirecting to dashboard...",
+        title: "登录成功",
+        description: "正在跳转到控制面板...",
       })
 
       router.push("/dashboard")
       router.refresh()
     } catch (error: any) {
       toast({
-        title: "Login failed",
-        description: error.message || "Please check your credentials and try again",
+        title: "登录失败",
+        description: error.message || "请检查您的凭据并重试",
         variant: "destructive",
       })
     } finally {
@@ -73,7 +73,7 @@ export function LoginForm() {
           name="email"
           render={({ field }) => (
             <FormItem>
-              <FormLabel>Email</FormLabel>
+              <FormLabel>邮箱</FormLabel>
               <FormControl>
                 <Input placeholder="name@example.com" {...field} />
               </FormControl>
@@ -86,7 +86,7 @@ export function LoginForm() {
           name="password"
           render={({ field }) => (
             <FormItem>
-              <FormLabel>Password</FormLabel>
+              <FormLabel>密码</FormLabel>
               <FormControl>
                 <Input type="password" {...field} />
               </FormControl>
@@ -95,7 +95,7 @@ export function LoginForm() {
           )}
         />
         <Button type="submit" className="w-full" disabled={isLoading}>
-          {isLoading ? "Logging in..." : "Login"}
+          {isLoading ? "登录中..." : "登录"}
         </Button>
       </form>
     </Form>

@@ -8,22 +8,22 @@ import { cn } from "@/lib/utils"
 
 const items = [
   {
-    title: "Dashboard",
+    title: "控制面板",
     href: "/admin",
     icon: LuLayoutDashboard,
   },
   {
-    title: "Users",
+    title: "用户",
     href: "/admin/users",
     icon: LuUsers,
   },
   {
-    title: "User Groups",
+    title: "用户组",
     href: "/admin/groups",
     icon: LuUserCheck,
   },
   {
-    title: "Settings",
+    title: "设置",
     href: "/admin/settings",
     icon: LuSettings,
   },

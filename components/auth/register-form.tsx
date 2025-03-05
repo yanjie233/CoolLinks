@@ -13,16 +13,16 @@ import { toast } from "@/components/ui/use-toast"
 
 const formSchema = z.object({
   username: z.string().min(3, {
-    message: "Username must be at least 3 characters",
+    message: "用户名必须至少3个字符",
   }),
   email: z.string().email({
-    message: "Please enter a valid email address",
+    message: "请输入有效的电子邮箱地址",
   }),
   password: z.string().min(8, {
-    message: "Password must be at least 8 characters",
+    message: "密码必须至少8个字符",
   }),
   captcha: z.string().min(4, {
-    message: "Please enter the captcha code",
+    message: "请输入验证码",
   }),
 })
 
@@ -42,7 +42,7 @@ export function RegisterForm() {
   })
 
   React.useEffect(() => {
-    // In a real app, you would fetch a captcha image from the server
+    // 在实际应用中，您会从服务器获取验证码图片
     setCaptchaImage("/placeholder.svg?height=50&width=150")
   }, [])
 
@@ -61,19 +61,19 @@ export function RegisterForm() {
       const data = await response.json()
 
       if (!response.ok) {
-        throw new Error(data.error || "Registration failed")
+        throw new Error(data.error || "注册失败")
       }
 
       toast({
-        title: "Registration successful",
-        description: "Please check your email for verification instructions",
+        title: "注册成功",
+        description: "请查看您的邮箱获取验证指南",
       })
 
       router.push("/login")
     } catch (error: any) {
       toast({
-        title: "Registration failed",
-        description: error.message || "Please try again",
+        title: "注册失败",
+        description: error.message || "请重试",
         variant: "destructive",
       })
     } finally {
@@ -89,7 +89,7 @@ export function RegisterForm() {
           name="username"
           render={({ field }) => (
             <FormItem>
-              <FormLabel>Username</FormLabel>
+              <FormLabel>用户名</FormLabel>
               <FormControl>
                 <Input placeholder="cooluser" {...field} />
               </FormControl>
@@ -102,7 +102,7 @@ export function RegisterForm() {
           name="email"
           render={({ field }) => (
             <FormItem>
-              <FormLabel>Email</FormLabel>
+              <FormLabel>邮箱</FormLabel>
               <FormControl>
                 <Input placeholder="name@example.com" {...field} />
               </FormControl>
@@ -115,7 +115,7 @@ export function RegisterForm() {
           name="password"
           render={({ field }) => (
             <FormItem>
-              <FormLabel>Password</FormLabel>
+              <FormLabel>密码</FormLabel>
               <FormControl>
                 <Input type="password" {...field} />
               </FormControl>
@@ -124,15 +124,15 @@ export function RegisterForm() {
           )}
         />
         <div className="space-y-2">
-          <img src={captchaImage || "/placeholder.svg"} alt="CAPTCHA" className="rounded" />
+          <img src={captchaImage || "/placeholder.svg"} alt="验证码" className="rounded" />
           <FormField
             control={form.control}
             name="captcha"
             render={({ field }) => (
               <FormItem>
-                <FormLabel>Captcha Code</FormLabel>
+                <FormLabel>验证码</FormLabel>
                 <FormControl>
-                  <Input placeholder="Enter the code shown above" {...field} />
+                  <Input placeholder="输入上方显示的验证码" {...field} />
                 </FormControl>
                 <FormMessage />
               </FormItem>
@@ -140,7 +140,7 @@ export function RegisterForm() {
           />
         </div>
         <Button type="submit" className="w-full" disabled={isLoading}>
-          {isLoading ? "Creating account..." : "Create Account"}
+          {isLoading ? "创建账户中..." : "创建账户"}
         </Button>
       </form>
     </Form>
