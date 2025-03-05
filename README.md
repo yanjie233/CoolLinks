@@ -26,3 +26,6 @@ IMAP_PORT=your-imap-port
 IMAP_USERNAME=your-imap-username
 
 IMAP_PASSWORD=your-imap-password
+
+# Vercel 一键部署
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/yanjie233/CoolLinks)
