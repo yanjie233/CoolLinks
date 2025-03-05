@@ -1,148 +1,159 @@
-import { Button } from "@/components/ui/button"
+import type React from "react"
 import Link from "next/link"
-import { GitHubLogoIcon, GlobeIcon, LockClosedIcon, TimerIcon } from "@radix-ui/react-icons"
-import { Card, CardContent } from "@/components/ui/card"
+import { Button } from "@/components/ui/button"
+import { ModeToggle } from "@/components/mode-toggle"
+import { LinkIcon, ArrowRightIcon } from "lucide-react"
 
 export default function Home() {
   return (
-    <div className="flex min-h-screen flex-col">
-      <header className="sticky top-0 z-50 w-full border-b border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-        <div className="container flex h-14 max-w-7xl items-center">
-          <div className="mr-4 flex">
-            <Link className="mr-6 flex items-center space-x-2" href="/">
-              <span className="font-bold inline-block">酷链接</span>
-            </Link>
-            <nav className="flex items-center gap-6 text-sm">
-              <Link href="/features" className="transition-colors hover:text-foreground/80 text-foreground/60">
-                功能
-              </Link>
-              <Link href="/pricing" className="transition-colors hover:text-foreground/80 text-foreground/60">
-                价格
-              </Link>
-              <Link href="/docs" className="transition-colors hover:text-foreground/80 text-foreground/60">
-                文档
-              </Link>
-            </nav>
+    <div className="min-h-screen flex flex-col">
+      <header className="border-b">
+        <div className="container mx-auto px-4 py-4 flex justify-between items-center">
+          <div className="flex items-center space-x-2">
+            <LinkIcon className="h-6 w-6 text-primary" />
+            <span className="text-xl font-bold">CoolLinks</span>
           </div>
-          <div className="flex flex-1 items-center justify-end space-x-2">
-            <nav className="flex items-center">
-              <Link href="/login" className="px-4">
-                <Button variant="ghost" size="sm">
-                  登录
-                </Button>
-              </Link>
-              <Link href="/register">
-                <Button size="sm">开始使用</Button>
-              </Link>
-            </nav>
+          <div className="flex items-center space-x-4">
+            <ModeToggle />
+            <Link href="/login">
+              <Button variant="outline">Login</Button>
+            </Link>
+            <Link href="/register">
+              <Button>Register</Button>
+            </Link>
           </div>
         </div>
       </header>
+
       <main className="flex-1">
-        <section className="w-full py-12 md:py-24 lg:py-32 xl:py-48">
-          <div className="container px-4 md:px-6">
-            <div className="grid gap-6 md:gap-10 lg:grid-cols-2 lg:gap-16">
-              <div className="flex flex-col justify-center space-y-4">
-                <div className="space-y-2">
-                  <h1 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl lg:text-6xl">
-                    创建短链接，完全掌控
-                  </h1>
-                  <p className="max-w-[700px] text-gray-500 md:text-xl dark:text-gray-400">
-                    酷链接为您提供强大的工具，用于创建、管理和跟踪短网址，支持自定义过期日期、密码保护等功能。
-                  </p>
-                </div>
-                <div className="flex flex-col gap-2 sm:flex-row">
-                  <Link href="/register">
-                    <Button size="lg" className="mb-2 sm:mb-0">
-                      开始使用
-                    </Button>
-                  </Link>
-                  <Link href="/features">
-                    <Button variant="outline" size="lg">
-                      了解更多
-                    </Button>
-                  </Link>
-                </div>
-              </div>
-              <div className="flex items-center justify-center">
-                <div className="w-full max-w-md rounded-lg bg-gradient-to-r from-primary/30 via-primary/10 to-primary/20 p-8">
-                  <div className="space-y-4">
-                    <div className="flex items-center">
-                      <div className="h-10 w-10 rounded-full bg-primary/20 flex items-center justify-center">
-                        <GlobeIcon className="h-5 w-5 text-primary" />
-                      </div>
-                      <div className="ml-4 space-y-1">
-                        <p className="text-sm font-medium leading-none">自定义短网址</p>
-                        <p className="text-sm text-gray-500 dark:text-gray-400">创建易记的品牌链接</p>
-                      </div>
-                    </div>
-                    <div className="flex items-center">
-                      <div className="h-10 w-10 rounded-full bg-primary/20 flex items-center justify-center">
-                        <TimerIcon className="h-5 w-5 text-primary" />
-                      </div>
-                      <div className="ml-4 space-y-1">
-                        <p className="text-sm font-medium leading-none">灵活过期设置</p>
-                        <p className="text-sm text-gray-500 dark:text-gray-400">设置自定义链接生命周期</p>
-                      </div>
-                    </div>
-                    <div className="flex items-center">
-                      <div className="h-10 w-10 rounded-full bg-primary/20 flex items-center justify-center">
-                        <LockClosedIcon className="h-5 w-5 text-primary" />
-                      </div>
-                      <div className="ml-4 space-y-1">
-                        <p className="text-sm font-medium leading-none">密码保护</p>
-                        <p className="text-sm text-gray-500 dark:text-gray-400">安全访问您的链接</p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
+        <section className="py-20 bg-gradient-to-b from-background to-secondary/20">
+          <div className="container mx-auto px-4 text-center">
+            <h1 className="text-4xl md:text-6xl font-bold mb-6">Simplify Your Links with CoolLinks</h1>
+            <p className="text-xl md:text-2xl text-muted-foreground mb-10 max-w-3xl mx-auto">
+              Create custom short links with expiration dates, password protection, and more.
+            </p>
+            <div className="flex flex-col sm:flex-row justify-center gap-4">
+              <Link href="/register">
+                <Button size="lg" className="px-8">
+                  Get Started
+                  <ArrowRightIcon className="ml-2 h-4 w-4" />
+                </Button>
+              </Link>
+              <Link href="/features">
+                <Button size="lg" variant="outline" className="px-8">
+                  Learn More
+                </Button>
+              </Link>
             </div>
           </div>
         </section>
-        <section className="bg-gray-50 dark:bg-gray-900 py-12 md:py-24 lg:py-32">
-          <div className="container px-4 md:px-6">
-            <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-3">
-              <Card>
-                <CardContent className="p-6">
-                  <GlobeIcon className="h-12 w-12 text-primary mb-4" />
-                  <h3 className="text-lg font-bold mb-2">自定义网址</h3>
-                  <p className="text-gray-500 dark:text-gray-400">创建反映您身份的易记品牌链接。</p>
-                </CardContent>
-              </Card>
-              <Card>
-                <CardContent className="p-6">
-                  <TimerIcon className="h-12 w-12 text-primary mb-4" />
-                  <h3 className="text-lg font-bold mb-2">过期控制</h3>
-                  <p className="text-gray-500 dark:text-gray-400">设置链接在1天、7天、30天后过期，或创建永久链接。</p>
-                </CardContent>
-              </Card>
-              <Card>
-                <CardContent className="p-6">
-                  <LockClosedIcon className="h-12 w-12 text-primary mb-4" />
-                  <h3 className="text-lg font-bold mb-2">安全功能</h3>
-                  <p className="text-gray-500 dark:text-gray-400">使用密码保护您的链接并控制对内容的访问。</p>
-                </CardContent>
-              </Card>
-            </div>
+
+        <section className="py-16 container mx-auto px-4">
+          <h2 className="text-3xl font-bold text-center mb-12">Key Features</h2>
+          <div className="grid md:grid-cols-3 gap-8">
+            <FeatureCard
+              title="Custom Expiration Dates"
+              description="Set your links to expire after 1 day, 1 week, 1 month, or make them permanent."
+              icon={<ClockIcon className="h-10 w-10 text-primary" />}
+            />
+            <FeatureCard
+              title="Password Protection"
+              description="Add an extra layer of security with password-protected links."
+              icon={<LockIcon className="h-10 w-10 text-primary" />}
+            />
+            <FeatureCard
+              title="Custom URL Suffixes"
+              description="Create memorable links with your own custom suffixes."
+              icon={<EditIcon className="h-10 w-10 text-primary" />}
+            />
           </div>
         </section>
       </main>
-      <footer className="border-t py-6 md:py-0">
-        <div className="container flex flex-col items-center justify-between gap-4 md:h-24 md:flex-row">
-          <p className="text-sm text-gray-500 dark:text-gray-400">© 2024 酷链接。保留所有权利。</p>
-          <div className="flex items-center gap-4">
-            <Link
-              href="https://github.com"
-              className="text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-50"
-            >
-              <GitHubLogoIcon className="h-5 w-5" />
-              <span className="sr-only">GitHub</span>
-            </Link>
-          </div>
+
+      <footer className="border-t py-8">
+        <div className="container mx-auto px-4 text-center text-muted-foreground">
+          <p>© 2025 CoolLinks. All rights reserved.</p>
         </div>
       </footer>
     </div>
+  )
+}
+
+function FeatureCard({
+  title,
+  description,
+  icon,
+}: {
+  title: string
+  description: string
+  icon: React.ReactNode
+}) {
+  return (
+    <div className="bg-card rounded-lg p-6 shadow-sm border flex flex-col items-center text-center">
+      <div className="mb-4">{icon}</div>
+      <h3 className="text-xl font-semibold mb-2">{title}</h3>
+      <p className="text-muted-foreground">{description}</p>
+    </div>
+  )
+}
+
+function ClockIcon(props: React.SVGProps<SVGSVGElement>) {
+  return (
+    <svg
+      {...props}
+      xmlns="http://www.w3.org/2000/svg"
+      width="24"
+      height="24"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    >
+      <circle cx="12" cy="12" r="10" />
+      <polyline points="12 6 12 12 16 14" />
+    </svg>
+  )
+}
+
+function LockIcon(props: React.SVGProps<SVGSVGElement>) {
+  return (
+    <svg
+      {...props}
+      xmlns="http://www.w3.org/2000/svg"
+      width="24"
+      height="24"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    >
+      <rect width="18" height="11" x="3" y="11" rx="2" ry="2" />
+      <path d="M7 11V7a5 5 0 0 1 10 0v4" />
+    </svg>
+  )
+}
+
+function EditIcon(props: React.SVGProps<SVGSVGElement>) {
+  return (
+    <svg
+      {...props}
+      xmlns="http://www.w3.org/2000/svg"
+      width="24"
+      height="24"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    >
+      <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7" />
+      <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z" />
+    </svg>
   )
 }
 
